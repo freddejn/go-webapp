@@ -2,6 +2,7 @@ package json
 
 import (
 	"encoding/json"
+	"fmt"
 
 	"github.com/freddejn/go-webapp/pkg/listing"
 )
@@ -13,6 +14,17 @@ const (
 
 type Storage struct {
 	db *jsonDriver
+}
+
+func NewStorage() (*Storage, error) {
+	var err error
+	fmt.Println("stored object")
+
+	if err != nil {
+		return nil, err
+	}
+	s := new(Storage)
+	return s, nil
 }
 
 func (s *Storage) GetAllArticles() []listing.Article {

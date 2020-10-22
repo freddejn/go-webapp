@@ -20,7 +20,11 @@ type Configuration struct {
 
 // GetConfig ... Loads configuration file
 func GetConfig(params ...string) Configuration {
-	f, err := os.Open("dev_config.yaml")
+	env := "dev"
+	if len(params) > 0 {
+		env = params[0]
+	}
+	f, err := os.Open(env + "_config.yaml")
 	if err != nil {
 		log.Fatal(err)
 	}
