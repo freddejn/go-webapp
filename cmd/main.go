@@ -6,8 +6,8 @@ import (
 	"net/http"
 
 	"github.com/freddejn/go-webapp/pkg/config"
+	"github.com/freddejn/go-webapp/pkg/domain/listing"
 	"github.com/freddejn/go-webapp/pkg/http/rest"
-	"github.com/freddejn/go-webapp/pkg/listing"
 	"github.com/freddejn/go-webapp/pkg/storage/json"
 )
 

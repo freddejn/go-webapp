@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/freddejn/go-webapp/pkg/listing"
+	"github.com/freddejn/go-webapp/pkg/domain/listing"
 )
 
 const (
@@ -28,6 +28,7 @@ func NewStorage() (*Storage, error) {
 }
 
 func (s *Storage) GetAllArticles() []listing.Article {
+	fmt.Println("get all articles")
 	list := []listing.Article{}
 	records, err := s.db.ReadAll(CollectionArticle)
 	if err != nil {
@@ -52,5 +53,5 @@ type jsonDriver struct {
 }
 
 func (j *jsonDriver) ReadAll(collection string) ([]string, error) {
-	return []string{"{\"Title\":\"Title1\", \"Content\":\"content1\"}", "{\"firstName\":\"Peter\", \"lastName\":\"Jones\"}"}, nil
+	return []string{"{\"Title\":\"Title1\", \"Content\":\"content1\"}", "{\"Title\":\"Peter\", \"Content\":\"Jones\"}"}, nil
 }
